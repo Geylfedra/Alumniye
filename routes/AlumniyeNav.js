@@ -23,6 +23,39 @@ import Alumni from "../page/Alumni";
 const StackNav = createNativeStackNavigator();
 const Tab = createNativeStackNavigator();
 
+const Home = () => {
+    return (
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+
+                    if (route.name === 'Home') {
+                        iconName = focused ? 'home' : 'home-outline';
+                    } else if (route.name === 'Chat') {
+                        iconName = focused ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline';
+                    }
+                    return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                headerTitle: () => {
+                    if (route.name === 'Home') {
+                        return (
+                            <View className="flex flex-row justify-center">
+                                <View className="basis-1/4">
+                                    <Avatar.Image className="ml-8" size={42} source={{ uri: 'https://media.istockphoto.com/id/1399788030/id/foto/potret-wanita-muda-india-yang-percaya-diri-berpose-di-latar-belakang.jpg?s=612x612&w=is&k=20&c=VqBF7e_SQvi7cULkFM2sSNugpsKiIalqO9refsB4TvI=' }} />
+                                </View>
+                            </View>
+                        );
+                    } else if (route.name === 'Chat') {
+                        return <Avatar.Image size={46} source={{ uri: 'https://media.istockphoto.com/id/1399788030/id/foto/potret-wanita-muda-india-yang-percaya-diri-berpose-di-latar-belakang.jpg?s=612x612&w=is&k=20&c=VqBF7e_SQvi7cULkFM2sSNugpsKiIalqO9refsB4TvI=' }}
+                        />
+                    }
+                },
+
+            })}
+            )
+
+}
 const AlumniyeNav = () => {
     return (
         <NavigationContainer>
@@ -33,9 +66,11 @@ const AlumniyeNav = () => {
                         backgroundColor: '#207423',
                     },
                     headerShown: () => {
-                        if (navigation.name === '') {
-
+                        if (navigation.name === 'Forum') {
+                            return true;
                         }
+                        else if (navigation.name === 'Event')
+                            return true;
                     }
                 })
 
