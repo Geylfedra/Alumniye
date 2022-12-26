@@ -51,9 +51,47 @@ const Home = () => {
                         />
                     }
                 },
-
+                tabBarActiveTintColor: '#ffa400',
+                tabBarInactiveTintColor: 'white',
+                tabBarStyle: {
+                    backgroundColor: '#006633',
+                },
+                headerStyle: {
+                    backgroundColor: '#006633',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+                tabBarIconStyle: {
+                    marginTop: 5,
+                    marginBottom: 5,
+                },
             })}
-            )
+        >
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Chat" component={Chat} />
+
+            <StackNav.Screen
+                name="Forum"
+                component={Forum}
+                options={({ navigation }) => ({
+                    tabBarButton: (props) => null,
+                    headerTitle: () => {
+                        return (
+                            <Pressable className="px-1 pt-1 rounded-full"
+                                title="Semua" style={{ backgroundColor: '#207423' }} onPress={() => navigation.goBack()}>
+                                <Ionicons name="arrow-back" size={30}
+                                    color="#FFFFFF">
+                                </Ionicons>
+                            </Pressable>
+                        );
+                    },
+                    headerBackVisible: false,
+                })}
+            />
+        </Tab.Navigator>
+    )
 
 }
 const AlumniyeNav = () => {
