@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { View, Pressable } from 'react-native';
+import { View, Pressable, Image, Dimensions } from 'react-native';
 import { Searchbar, Avatar } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -18,29 +18,60 @@ import Message from "../page/Message";
 import Notification from "../page/Notification";
 import Profile from "../page/Profile";
 import Alumni from "../page/Alumni";
+import { color } from 'react-native-tailwindcss';
 
 const StackNav = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const HomePage = () => {
+const HomePage = ({ navigasi }) => {
+    const screenHeight = Dimensions.get('window').height;
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     if (route.name === 'Beranda') {
                         iconName = focused ? 'home' : 'home-outline';
-                    } else if (route.name === 'Search') {
-                        iconName = focused ? 'search' : 'search-outline'
+                    } else if (route.name === 'Forum') {
+                        iconName = focused ? 'people-circle' : 'people-circle-outline';
+                    } else if (route.name === 'Message') {
+                        iconName = focused ? 'mail' : 'mail-outline';
+                    } else if (route.name === 'Profile') {
+                        iconName = focused ? 'person' : 'person-outline';
                     }
                     return <Ionicons name={iconName} size={size} color={color} />;
                 },
-                tabBarActiveTintColor: '#000000',
+                headerTitle: () => {
+                    if (route.name === 'Beranda') {
+                        return (
+                            <View className="flex flex-row justify-center">
+                                <View className="basis-3/4">
+                                    <Image source={require('../assets/img/HeaderLogo.png')} />
+                                </View>
+                                <View className="basis-1/4">
+                                    <View className="flex flex-row">
+                                        <View className="basis-1/2">
+                                            <Pressable className="mt-3 ml-3">
+                                                <Ionicons size={30} name={"search-outline"} color='white' />
+                                            </Pressable>
+                                        </View>
+                                        <View className="basis-1/2">
+                                            <Pressable className="mt-3 ml-2">
+                                                <Ionicons size={30} name={"notifications-outline"} color='white' />
+                                            </Pressable>
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }
+                },
+                tabBarActiveTintColor: 'white',
                 tabBarInactiveTintColor: 'white',
                 tabBarStyle: {
-                    backgroundColor: '#006633',
+                    backgroundColor: '#207423',
                 },
                 headerStyle: {
-                    backgroundColor: '#006633',
+                    backgroundColor: '#207423',
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
@@ -53,7 +84,9 @@ const HomePage = () => {
             })}
         >
             <Tab.Screen name="Beranda" component={Home} options={{ headerShown: true }} />
-            <Tab.Screen name="Search" component={Search} options={{ headerShown: false }} />
+            <Tab.Screen name="Forum" component={Forum} options={{ headerShown: true }} />
+            <Tab.Screen name="Message" component={Message} options={{ headerShown: true }} />
+            <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         </Tab.Navigator>
     )
 }
