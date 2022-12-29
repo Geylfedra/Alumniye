@@ -1,12 +1,33 @@
 import * as React from 'react';
-import { Text } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { FloatingAction } from "react-native-floating-action";
+import { NavigationContainer } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import IsiForum from '../components/Forum/IsiForum';
 
-const Forum = () => {
+const Forum = ({ navigation }) => {
     return (
         <>
-            <Text>Forum Page</Text>
+            <ScrollView>
+                <View>
+                    <IsiForum />
+                    <IsiForum />
+                    <IsiForum />
+                    <IsiForum />
+                    <IsiForum />
+                </View>
+            </ScrollView>
+            <FloatingAction color='#207423' onPressMain={() => navigation.navigate("TambahForum")} showBackground={false} />
         </>
     );
 }
 
+const styles = StyleSheet.create({
+    tombolTambahForum: {
+        backgroundColor: '#207423',
+        flex: 1,
+        position: 'absolute',
+
+    }
+});
 export default Forum;
