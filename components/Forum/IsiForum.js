@@ -20,7 +20,7 @@ const IsiForum = () => {
                     <Card.Content className="mb-2">
                         <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget neque, malesuada nisl, lacus amet pulvinar. Consectetur imperdiet semper </Paragraph>
                     </Card.Content>
-                    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+                    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} className="mx-1" />
                     <Card.Actions>
                         <View className="flex flex-row w-full gap-2">
                             <Ionicons name={'heart-outline'} size={30} color={'black'} />

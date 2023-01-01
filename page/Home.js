@@ -8,12 +8,12 @@ const Home = ({ navigation }) => {
     return (
         <>
             <ScrollView>
-                <SafeAreaView>
-                    <Text className="mt-3 ml-5" style={{ fontFamily: "Roboto", fontSize: 32 }}>What's New</Text>
+                <SafeAreaView className="mx-3">
+                    <Text className="mt-3" style={{ fontFamily: "Roboto", fontSize: 32 }}>What's New</Text>
                     <BannerCustom />
-                    <Text className="mt-3 ml-5" style={{ fontFamily: 'Roboto', fontSize: 32 }}>Activity</Text>
+                    <Text className="mt-3" style={{ fontFamily: 'Roboto', fontSize: 32 }}>Activity</Text>
                     <BannerTracer />
-                    <Text className="mt-3 ml-5" style={{ fontFamily: 'Roboto', fontSize: 32 }}>Forum Terbaru</Text>
+                    <Text className="mt-3" style={{ fontFamily: 'Roboto', fontSize: 32 }}>Forum Terbaru</Text>
                     <IsiForum />
                     <IsiForum />
                     <IsiForum />

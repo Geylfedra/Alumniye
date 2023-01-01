@@ -6,7 +6,7 @@ const BannerTracer = () => {
     return (
         <Pressable>
             <TouchableOpacity onPress={() => console.log('Pressed')}>
-                <View className="flex flex-row bg-white rounded-xl shadow-xl mt-2 mx-4" style={{ backgroundColor: '#207423', width: 350, height: 100 }}>
+                <View className="flex flex-row bg-white rounded-xl shadow-xl mt-2 mx-1" style={{ backgroundColor: '#207423', width: 350, height: 100 }}>
                     <View className="basis-1/4 container justify-center rounded-xl">
                         <Image className="rounded-xl ml-2 mt-2" source={require('../../assets/img/Tracer.png')} style={{ width: 100 }} />
                     </View>

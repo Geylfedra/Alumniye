@@ -8,7 +8,7 @@ import IsiForum from '../components/Forum/IsiForum';
 const Forum = ({ navigation }) => {
     return (
         <>
-            <ScrollView>
+            <ScrollView className="mx-3">
                 <View>
                     <IsiForum />
                     <IsiForum />

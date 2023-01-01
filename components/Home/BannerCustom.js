@@ -7,7 +7,7 @@ const BannerCustom = () => {
         <ScrollView className="pt-2 align-center" horizontal={true} showsHorizontalScrollIndicator={false}>
             <TouchableOpacity>
                 {/* Banner Pertama */}
-                <Card className="mx-4 rounded-xl" style={{ width: 320, height: 270 }}>
+                <Card className="mx-1 rounded-xl" style={{ width: 320, height: 270 }}>
                     <Card.Cover source={{ uri: 'https://picsum.photos/320/260' }} />
                     <Card.Content className="my-2">
                         <Title>Card title</Title>

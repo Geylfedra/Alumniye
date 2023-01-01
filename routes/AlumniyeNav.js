@@ -48,12 +48,17 @@ const HomePage = ({ navigation }) => {
                         return (
                             <View className="flex flex-row justify-center">
                                 <View className="basis-3/4">
-                                    <Image source={require('../assets/img/HeaderLogo.png')} />
+                                    <Image source={require('../assets/img/HeaderLogo.png')}
+                                        style={{
+                                            resizeMode: 'contain',
+                                            width: 110,
+                                            height: 50,
+                                        }} />
                                 </View>
                                 <View className="basis-1/4">
                                     <View className="flex flex-row">
                                         <View className="basis-1/2">
-                                            <Pressable className="mt-3 ml-3" onPress={() => navigation.navigate("Search")}>
+                                            <Pressable className="mt-3" onPress={() => navigation.navigate("Search")}>
                                                 <Ionicons size={30} name={"search-outline"} color='white' />
                                             </Pressable>
                                         </View>
@@ -128,15 +133,25 @@ const HomePage = ({ navigation }) => {
                         )
                     }
                 },
+                tabBarShowLabel: false,
                 tabBarActiveTintColor: 'white',
                 tabBarInactiveTintColor: 'white',
                 tabBarStyle: {
-                    backgroundColor: '#207423',
+                    backgroundColor: '#004103',
+                    position: 'absolute',
+                    bottom: 25,
+                    left: 20,
+                    right: 20,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 60,
+
                 },
                 headerStyle: {
-                    backgroundColor: '#207423',
+                    backgroundColor: '#004103',
+                    borderRadius: 15,
                 },
-                headerTintColor: '#fff',
+
                 headerTitleStyle: {
                     fontWeight: 'bold',
                 },
